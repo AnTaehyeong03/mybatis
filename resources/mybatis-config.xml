@@ -56,6 +56,7 @@
 	<!-- mapper : 실제 실행할 Mapper파일을 등록하는 영역 -->
 	<mappers>
 		<mapper resource="/mapper/student/student-mapper.xml" />
+		<mapper resource="/mapper/emp/emp-mapper.xml" />
 	</mappers>
 	
 </configuration>

@@ -53,7 +53,7 @@
 	</insert>
 	
 	<!-- 
-		resultSetㅇ르 mybatis가 자동으로 VO클래스로 매핑
+		resultSet을 mybatis가 자동으로 VO클래스로 매핑
 		1. 칼럼명과 동일한 이름의 필드의 setter메서드를 호출하여 값을 대입
 		2. 자동형변환처리
 			varchar2, char -> String
@@ -84,6 +84,23 @@
 		WHERE NO = #{no}
 	</update>
 	
+	<select id="selectStudentList" resultMap="studentMap">
+		SELECT *
+		FROM STUDENT
+		ORDER BY NO DESC
+	</select>
+	
+	<!-- 
+		1. 기본생성자 new Student(); 호출
+		2. setter메서드 호출하며 데이터 바인딩
+		- column의 이름과 property의 이름이 동일하다면 생략 가능
+	 -->
+	<resultMap id="studentMap" type="student">
+		<id column="NO" property="no" />
+		<result column="NAME" property="name" />
+		<result column="TEL" property="tel" />
+		<result column="REG_DATE" property="regDate" />
+	</resultMap>
 	
 </mapper>
 
